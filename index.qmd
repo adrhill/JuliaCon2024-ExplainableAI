@@ -1,0 +1,36 @@
+---
+title: "What's new with Explainable AI in Julia?"
+author:
+  - name: Adrian Hill
+    orcid: 0009-0009-5977-301X
+    email: hill@tu-berlin.de
+    affiliation: 
+      - name: Technische Universität Berlin
+      - department: Machine Learning Group
+date: "2024-07-12"
+bibliography: library.bib
+engine: julia
+format: revealjs
+execute:
+    echo: true
+---
+
+# Introduction
+
+## Code
+
+```{julia}
+x = 5
+y = x^2
+```
+
+## Citation
+
+See @bach2015pixel.
+
+# Appendix
+
+## References
+
+::: {#refs}
+:::

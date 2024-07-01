@@ -1,0 +1,9 @@
+[deps]
+ExplainableAI = "4f1bc3e1-d60d-4ed0-9367-9bdff9846d3b"
+Images = "916415d5-f1e6-5110-898d-aaa5f9f070e0"
+QuartoNotebookRunner = "4c0109c6-14e9-4c88-93f0-2b974d3468f4"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+RelevancePropagation = "0be6dd02-ae9e-43eb-b318-c6e81d6890d8"
+TextHeatmaps = "2dd6718a-6083-4824-b9f7-90e4a57f72d2"
+VisionHeatmaps = "27106da1-f8bc-4ca8-8c66-9b8289f1e035"
+XAIBase = "9b48221d-a747-4c1b-9860-46a1d8ba24a7"
