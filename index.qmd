@@ -10,9 +10,18 @@ author:
 date: "2024-07-11"
 bibliography: library.bib
 engine: julia
-format: revealjs
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    logo: /img/qr/qrcode.png
+    footer: "[github.com/Julia-XAI](http://github.com/Julia-XAI)"
+    toc: true
+    toc-depth: 1
+    slide-number: true
+    overview: true
 execute:
     echo: true
+    freeze: auto
 ---
 
 # Introduction
