@@ -4,7 +4,7 @@
     "href": "index.html#code",
     "title": "What’s new with Explainable AI in Julia?",
     "section": "Code",
-    "text": "Code\nx = 5\ny = x^2"
+    "text": "Code\n\nx = 5\ny = x^2\n\n25"
   },
   {
     "objectID": "index.html#citation",
@@ -18,6 +18,6 @@
     "href": "index.html#references",
     "title": "What’s new with Explainable AI in Julia?",
     "section": "References",
-    "text": "References\n\n\nBach, Sebastian, Alexander Binder, Grégoire Montavon, Frederick Klauschen, Klaus-Robert Müller, and Wojciech Samek. 2015. “On Pixel-Wise Explanations for Non-Linear Classifier Decisions by Layer-Wise Relevance Propagation.” PloS One 10 (7): e0130140."
+    "text": "References\n\n\nBach, Sebastian, Alexander Binder, Grégoire Montavon, Frederick Klauschen, Klaus-Robert Müller, and Wojciech Samek. 2015. “On Pixel-Wise Explanations for Non-Linear Classifier Decisions by Layer-Wise Relevance Propagation.” PloS One 10 (7): e0130140.\n\n\n\n\n\n\ngithub.com/Julia-XAI"
   }
 ]
