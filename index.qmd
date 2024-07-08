@@ -26,12 +26,24 @@ execute:
 
 # Introduction
 
-## Code
+## What is this about?
+Post-hoc, local input-space explanations of black-box models. 
 
-```{julia}
-x = 5
-y = x^2
-```
+> Which part of the input is responsible for the model's output?
+
+## What is this about?
+
+## The Julia-XAI ecosystem
+
+## VisionHeatmaps.jl
+
+## TextHeatmaps.jl
+
+## XAIBase.jl
+
+## RelevancePropagation.jl
+
+## New methods
 
 ## Citation
 

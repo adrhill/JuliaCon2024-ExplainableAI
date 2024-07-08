@@ -1,6 +1,10 @@
 [deps]
 ExplainableAI = "4f1bc3e1-d60d-4ed0-9367-9bdff9846d3b"
+Flux = "587475ba-b771-5e3f-ad9e-33799f191a9c"
+ImageNetDataset = "d141d81c-f7c4-4296-8313-8866e6f9f78a"
+ImageShow = "4e3cecfd-b093-5904-9786-8bbb286a6a31"
 Images = "916415d5-f1e6-5110-898d-aaa5f9f070e0"
+Metalhead = "dbeba491-748d-5e0e-a39e-b530a07fa0cc"
 QuartoNotebookRunner = "4c0109c6-14e9-4c88-93f0-2b974d3468f4"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 RelevancePropagation = "0be6dd02-ae9e-43eb-b318-c6e81d6890d8"
