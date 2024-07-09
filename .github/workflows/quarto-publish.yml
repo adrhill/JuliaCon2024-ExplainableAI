@@ -48,4 +48,5 @@ jobs:
         with:
           target: gh-pages
         env:
+          DATADEPS_ALWAYS_ACCEPT: true # for MLDatasets download
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
