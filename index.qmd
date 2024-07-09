@@ -13,12 +13,10 @@ engine: julia
 format:
   revealjs:
     theme: [default, custom.scss]
-    logo: /img/qr/qrcode.png
     footer: "[github.com/Julia-XAI](http://github.com/Julia-XAI)"
-    toc: true
-    toc-depth: 1
     slide-number: true
     overview: true
+    code-line-numbers: false
 execute:
     echo: true
     freeze: auto
@@ -26,12 +24,96 @@ execute:
 
 # Introduction
 
-## What is this about?
-Post-hoc, local input-space explanations of black-box models. 
+## Follow along
 
-> Which part of the input is responsible for the model's output?
+::: {.qr-code}
+![](img/qr/qrcode.png)
 
-## What is this about?
+[github.com/adrhill/JuliaCon2024-ExplainableAI](https://github.com/adrhill/JuliaCon2024-ExplainableAI)
+:::
+
+## ExplainableAI.jl to Julia-XAI
+
+- **JuliaCon 2022:** ExplainableAI.jl
+- **JuliaCon 2024:** Julia-XAI organization
+
+::: {.callout-note}
+## What is Julia-XAI?
+
+Ecosystem of packages providing a platform for the development of new XAI methods:
+
+[github.com/Julia-XAI](http://github.com/Julia-XAI)
+:::
+
+::: {.callout-important}
+## What kind of explanations?
+
+Post-hoc, local input-space explanations of black-box models:
+ 
+> "Which part of the input is responsible for the model's output?"
+:::
+
+## Example: vision models
+
+![](img/castle.jpg){width=300px;}
+```{julia}
+#| echo: false
+using Images
+using ImageNetDataset
+
+# Prepare data
+img = load("img/castle.jpg")
+tfm = CenterCropNormalize()
+input = reshape(transform(tfm, "img/castle.jpg"), 224, 224, 3, :);
+```
+
+```{julia}
+using Flux, Metalhead
+model = VGG(19; pretrain=true).layers
+testmode!(model)
+
+prediction = model(input)
+class = argmax(prediction) # class 484: castle
+```
+
+Pretrained model predicts class "castle". **But why?**
+
+## Heatmapping: input sensitivity
+
+```{julia}
+using ExplainableAI
+using VisionHeatmaps
+
+analyzer = Gradient(model)
+expl = analyze(input, analyzer)
+heatmap(expl)
+```
+
+## Heatmapping: GradCAM
+
+```{julia}
+using ExplainableAI
+using VisionHeatmaps
+
+analyzer = GradCAM(model[1], model[2])
+expl = analyze(input, analyzer)
+heatmap_overlay(expl, img)
+```
+
+@selvaraju2017grad
+
+## Heatmapping: LRP
+
+```{julia}
+using RelevancePropagation
+using VisionHeatmaps
+
+analyzer = LRP(model, EpsilonPlusFlat())
+explanation = analyze(input, analyzer)
+heatmap(explanation)
+```
+
+@bach2015pixel
 
 ## The Julia-XAI ecosystem
 
@@ -44,10 +126,6 @@ Post-hoc, local input-space explanations of black-box models.
 ## RelevancePropagation.jl
 
 ## New methods
-
-## Citation
-
-See @bach2015pixel.
 
 # Appendix
 

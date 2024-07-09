@@ -12,3 +12,16 @@
   border-bottom: 2px solid #bbbbbb;
   margin-bottom: 1.5rem;
 }
+
+.reveal .r-stretch {
+  height: 224px;
+  width: 224px;
+}
+
+.reveal .qr-code {
+  text-align: center;
+}
+
+.reveal .qr-code img {
+  max-height: 450px;
+}
