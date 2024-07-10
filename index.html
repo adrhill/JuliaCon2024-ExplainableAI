@@ -494,7 +494,7 @@ Adrian Hill <a href="https://orcid.org/0009-0009-5977-301X" class="quarto-title-
 <li><code>IntegratedGradients</code> <span class="citation" data-cites="sundararajan2017axiomatic">Sundararajan, Taly, and Yan (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span></li>
 <li>🆕 <code>GradCAM</code> <span class="citation" data-cites="selvaraju2017grad">Selvaraju et al. (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span></li>
 </ul></li>
-<li><a href="https://github.com/Julia-XAI/RelevancePropagation.jl">RelevancePropagation.jl</a> – applicable on Flux.jl classifiers
+<li>🆕 <a href="https://github.com/Julia-XAI/RelevancePropagation.jl">RelevancePropagation.jl</a> – applicable on Flux.jl classifiers
 <ul>
 <li><code>LRP</code> <span class="citation" data-cites="bach2015pixel">Bach et al. (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span>
 <ul>
@@ -504,6 +504,19 @@ Adrian Hill <a href="https://orcid.org/0009-0009-5977-301X" class="quarto-title-
 <li>🆕 <code>CRP</code> <span class="citation" data-cites="achtibat23crp">Achtibat et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></li>
 </ul></li>
 </ul>
+<aside class="notes">
+<p>A lot of new methods have been added since 2022!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="methods-input-sensitivity" class="slide level2">
 <h2>Methods: input sensitivity</h2>
@@ -623,11 +636,21 @@ Adrian Hill <a href="https://orcid.org/0009-0009-5977-301X" class="quarto-title-
 <div class="callout-content">
 <ul>
 <li>automatically compute heatmaps using <a href="https://julia-xai.github.io/XAIDocs/VisionHeatmaps/stable/">VisionHeatmaps.jl</a> and <a href="https://julia-xai.github.io/XAIDocs/TextHeatmaps/stable/">TextHeatmaps.jl</a></li>
+<li>composable with e.g.&nbsp;<a href="https://julia-xai.github.io/XAIDocs/ExplainableAI/stable/api/#Input-augmentations">input augmentations</a> from ExplainableAI.jl</li>
 <li>dependency free</li>
 <li>perfect for package extensions!</li>
 </ul>
 </div>
 </div>
+</div>
+</section>
+<section id="acknowledgements" class="slide level2">
+<h2>Acknowledgements</h2>
+<blockquote>
+<p>Adrian Hill acknowledges support by the Federal Ministry of Education and Research (BMBF) for the Berlin Institute for the Foundations of Learning and Data (BIFOLD) (01IS18037A).</p>
+</blockquote>
+<div class="center-img">
+<p><img data-src="img/bifold.svg"></p>
 </div>
 </section>
 <section id="references" class="slide level2 smaller scrollable">

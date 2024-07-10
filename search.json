@@ -18,7 +18,7 @@
     "href": "index.html#methods",
     "title": "What’s new with Explainable AI in Julia?",
     "section": "Methods",
-    "text": "Methods\n\nExplainableAI.jl – applicable on any differentiable classifier\n\nGradient\nInputTimesGradient\nSmoothGrad Smilkov et al. (2017)\nIntegratedGradients Sundararajan, Taly, and Yan (2017)\n🆕 GradCAM Selvaraju et al. (2017)\n\nRelevancePropagation.jl – applicable on Flux.jl classifiers\n\nLRP Bach et al. (2015)\n\n🆕 support for ResNets\n🆕 support for Transformers Ali et al. (2022), Achtibat et al. (2024)\n\n🆕 CRP Achtibat et al. (2023)"
+    "text": "Methods\n\nExplainableAI.jl – applicable on any differentiable classifier\n\nGradient\nInputTimesGradient\nSmoothGrad Smilkov et al. (2017)\nIntegratedGradients Sundararajan, Taly, and Yan (2017)\n🆕 GradCAM Selvaraju et al. (2017)\n\n🆕 RelevancePropagation.jl – applicable on Flux.jl classifiers\n\nLRP Bach et al. (2015)\n\n🆕 support for ResNets\n🆕 support for Transformers Ali et al. (2022), Achtibat et al. (2024)\n\n🆕 CRP Achtibat et al. (2023)\n\n\n\nA lot of new methods have been added since 2022!"
   },
   {
     "objectID": "index.html#methods-input-sensitivity",
@@ -67,7 +67,14 @@
     "href": "index.html#xaibase.jl",
     "title": "What’s new with Explainable AI in Julia?",
     "section": "XAIBase.jl",
-    "text": "XAIBase.jl\nInterface definition:\n\nmethod has to be a subtype of AbstractXAIMethod\nmethod has to return Explanation\n\n\n\n\n\n\n\nBenefits\n\n\n\nautomatically compute heatmaps using VisionHeatmaps.jl and TextHeatmaps.jl\ndependency free\nperfect for package extensions!"
+    "text": "XAIBase.jl\nInterface definition:\n\nmethod has to be a subtype of AbstractXAIMethod\nmethod has to return Explanation\n\n\n\n\n\n\n\nBenefits\n\n\n\nautomatically compute heatmaps using VisionHeatmaps.jl and TextHeatmaps.jl\ncomposable with e.g. input augmentations from ExplainableAI.jl\ndependency free\nperfect for package extensions!"
+  },
+  {
+    "objectID": "index.html#acknowledgements",
+    "href": "index.html#acknowledgements",
+    "title": "What’s new with Explainable AI in Julia?",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\n\nAdrian Hill acknowledges support by the Federal Ministry of Education and Research (BMBF) for the Berlin Institute for the Foundations of Learning and Data (BIFOLD) (01IS18037A)."
   },
   {
     "objectID": "index.html#references",
