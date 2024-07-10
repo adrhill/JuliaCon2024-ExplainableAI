@@ -1,4 +1,5 @@
 [deps]
+ColorSchemes = "35d6a980-a343-548e-a6ea-1d62b119f2f4"
 ExplainableAI = "4f1bc3e1-d60d-4ed0-9367-9bdff9846d3b"
 Flux = "587475ba-b771-5e3f-ad9e-33799f191a9c"
 ImageNetDataset = "d141d81c-f7c4-4296-8313-8866e6f9f78a"

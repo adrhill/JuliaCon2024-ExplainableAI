@@ -121,11 +121,39 @@ heatmap(explanation)
 
 ## TextHeatmaps.jl
 
+Visualize explanations on **language models**
+
+```{julia}
+using TextHeatmaps
+
+words = split("I loved the concert but not the opening act")
+val = [0.1, 2.5, 0.0, 0.3, -0.6, -1.4, 0.0, 0.1, -0.1]
+TextHeatmaps.heatmap(val, words)
+``` 
+
+```{julia}
+TextHeatmaps.heatmap(val, words; rangescale=:extrema)
+```
+
+```{julia}
+using ColorSchemes
+TextHeatmaps.heatmap(val, words; colorscheme=:inferno)
+```
+
 ## XAIBase.jl
 
-## RelevancePropagation.jl
+Interface definition:
 
-## New methods
+1. method has to be a subtype of `AbstractXAIMethod`
+2. method has to return `Explanation`
+
+::: {.callout-note}
+# Benefits
+- automatically compute heatmaps using [VisionHeatmaps.jl](https://julia-xai.github.io/XAIDocs/VisionHeatmaps/stable/)
+and [TextHeatmaps.jl](https://julia-xai.github.io/XAIDocs/TextHeatmaps/stable/)
+- dependency free
+- perfect for package extensions!
+:::
 
 # Appendix
 
