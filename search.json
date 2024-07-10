@@ -1,23 +1,86 @@
 [
   {
-    "objectID": "index.html#code",
-    "href": "index.html#code",
+    "objectID": "index.html#follow-along",
+    "href": "index.html#follow-along",
     "title": "What’s new with Explainable AI in Julia?",
-    "section": "Code",
-    "text": "Code\n\nx = 5\ny = x^2\n\n25"
+    "section": "Follow along",
+    "text": "Follow along\n\n\ngithub.com/adrhill/JuliaCon2024-ExplainableAI"
   },
   {
-    "objectID": "index.html#citation",
-    "href": "index.html#citation",
+    "objectID": "index.html#explainableai.jl-to-julia-xai",
+    "href": "index.html#explainableai.jl-to-julia-xai",
     "title": "What’s new with Explainable AI in Julia?",
-    "section": "Citation",
-    "text": "Citation\nSee Bach et al. (2015)."
+    "section": "ExplainableAI.jl to Julia-XAI",
+    "text": "ExplainableAI.jl to Julia-XAI\n\nJuliaCon 2022: ExplainableAI.jl\nJuliaCon 2024: Julia-XAI organization\n\n\n\n\n\n\n\nWhat is Julia-XAI?\n\n\nEcosystem of packages providing a platform for the development of new XAI methods:\ngithub.com/Julia-XAI\n\n\n\n\n\n\n\n\n\nWhat kind of explanations?\n\n\nPost-hoc, local input-space explanations of black-box models:\n\n“Which part of the input is responsible for the model’s output?”"
+  },
+  {
+    "objectID": "index.html#methods",
+    "href": "index.html#methods",
+    "title": "What’s new with Explainable AI in Julia?",
+    "section": "Methods",
+    "text": "Methods\n\nExplainableAI.jl – applicable on any differentiable classifier\n\nGradient\nInputTimesGradient\nSmoothGrad Smilkov et al. (2017)\nIntegratedGradients Sundararajan, Taly, and Yan (2017)\n🆕 GradCAM Selvaraju et al. (2017)\n\nRelevancePropagation.jl – applicable on Flux.jl classifiers\n\nLRP Bach et al. (2015)\n\n🆕 support for ResNets\n🆕 support for Transformers Ali et al. (2022), Achtibat et al. (2024)\n\n🆕 CRP Achtibat et al. (2023)"
+  },
+  {
+    "objectID": "index.html#example-vision-models",
+    "href": "index.html#example-vision-models",
+    "title": "What’s new with Explainable AI in Julia?",
+    "section": "Example: vision models",
+    "text": "Example: vision models\n\n\nusing Flux, Metalhead\nmodel = VGG(19; pretrain=true).layers\ntestmode!(model)\n\nprediction = model(input)\nclass = argmax(prediction) # class 484: castle\n\n Downloading artifact: vgg19-IMAGENET1K_V1\n\n\nCartesianIndex(484, 1)\n\n\nPretrained model predicts class “castle”. But why?"
+  },
+  {
+    "objectID": "index.html#methods-input-sensitivity",
+    "href": "index.html#methods-input-sensitivity",
+    "title": "What’s new with Explainable AI in Julia?",
+    "section": "Methods: input sensitivity",
+    "text": "Methods: input sensitivity\n\nusing ExplainableAI\nusing VisionHeatmaps\n\nanalyzer = Gradient(model)\nexpl = analyze(input, analyzer)\nheatmap(expl)"
+  },
+  {
+    "objectID": "index.html#methods-gradcam",
+    "href": "index.html#methods-gradcam",
+    "title": "What’s new with Explainable AI in Julia?",
+    "section": "Methods: GradCAM",
+    "text": "Methods: GradCAM\n\nusing ExplainableAI\nusing VisionHeatmaps\n\nanalyzer = GradCAM(model[1], model[2])\nexpl = analyze(input, analyzer)\nheatmap_overlay(expl, img)"
+  },
+  {
+    "objectID": "index.html#methods-lrp",
+    "href": "index.html#methods-lrp",
+    "title": "What’s new with Explainable AI in Julia?",
+    "section": "Methods: LRP",
+    "text": "Methods: LRP\n\nusing RelevancePropagation\nusing VisionHeatmaps\n\nanalyzer = LRP(model, EpsilonPlusFlat())\nexplanation = analyze(input, analyzer)\nheatmap(explanation)"
+  },
+  {
+    "objectID": "index.html#the-julia-xai-ecosystem",
+    "href": "index.html#the-julia-xai-ecosystem",
+    "title": "What’s new with Explainable AI in Julia?",
+    "section": "The Julia-XAI ecosystem",
+    "text": "The Julia-XAI ecosystem"
+  },
+  {
+    "objectID": "index.html#visionheatmaps.jl",
+    "href": "index.html#visionheatmaps.jl",
+    "title": "What’s new with Explainable AI in Julia?",
+    "section": "VisionHeatmaps.jl",
+    "text": "VisionHeatmaps.jl"
+  },
+  {
+    "objectID": "index.html#textheatmaps.jl",
+    "href": "index.html#textheatmaps.jl",
+    "title": "What’s new with Explainable AI in Julia?",
+    "section": "TextHeatmaps.jl",
+    "text": "TextHeatmaps.jl\nVisualize explanations on language models\n\nusing TextHeatmaps\n\nwords = split(\"I loved the concert but not the opening act\")\nval = [0.1, 2.5, 0.0, 0.3, -0.6, -1.4, 0.0, 0.1, -0.1]\nTextHeatmaps.heatmap(val, words)\n\nWARNING: using TextHeatmaps.heatmap in module Notebook conflicts with an existing identifier.\n\n\nIlovedtheconcertbutnottheopeningact\n\n\n\nTextHeatmaps.heatmap(val, words; rangescale=:extrema)\n\nIlovedtheconcertbutnottheopeningact\n\n\n\nusing ColorSchemes\nTextHeatmaps.heatmap(val, words; colorscheme=:inferno)\n\nIlovedtheconcertbutnottheopeningact"
+  },
+  {
+    "objectID": "index.html#xaibase.jl",
+    "href": "index.html#xaibase.jl",
+    "title": "What’s new with Explainable AI in Julia?",
+    "section": "XAIBase.jl",
+    "text": "XAIBase.jl\nInterface definition:\n\nmethod has to be a subtype of AbstractXAIMethod\nmethod has to return Explanation\n\n\n\n\n\n\n\nBenefits\n\n\n\nautomatically compute heatmaps using VisionHeatmaps.jl and TextHeatmaps.jl\ndependency free\nperfect for package extensions!"
   },
   {
     "objectID": "index.html#references",
     "href": "index.html#references",
     "title": "What’s new with Explainable AI in Julia?",
     "section": "References",
-    "text": "References\n\n\nBach, Sebastian, Alexander Binder, Grégoire Montavon, Frederick Klauschen, Klaus-Robert Müller, and Wojciech Samek. 2015. “On Pixel-Wise Explanations for Non-Linear Classifier Decisions by Layer-Wise Relevance Propagation.” PloS One 10 (7): e0130140.\n\n\n\n\n\n\ngithub.com/Julia-XAI"
+    "text": "References\n\n\nAchtibat, Reduan, Maximilian Dreyer, Ilona Eisenbraun, Sebastian Bosse, Thomas Wiegand, Wojciech Samek, and Sebastian Lapuschkin. 2023. “From Attribution Maps to Human-Understandable Explanations Through Concept Relevance Propagation.” Nature Machine Intelligence 5 (9): 1006–19. https://doi.org/10.1038/s42256-023-00711-8.\n\n\nAchtibat, Reduan, Sayed Mohammad Vakilzadeh Hatefi, Maximilian Dreyer, Aakriti Jain, Thomas Wiegand, Sebastian Lapuschkin, and Wojciech Samek. 2024. “Attnlrp: Attention-Aware Layer-Wise Relevance Propagation for Transformers.” arXiv Preprint arXiv:2402.05602.\n\n\nAli, Ameen, Thomas Schnake, Oliver Eberle, Grégoire Montavon, Klaus-Robert Müller, and Lior Wolf. 2022. “XAI for Transformers: Better Explanations Through Conservative Propagation.” In International Conference on Machine Learning, 435–51. PMLR.\n\n\nBach, Sebastian, Alexander Binder, Grégoire Montavon, Frederick Klauschen, Klaus-Robert Müller, and Wojciech Samek. 2015. “On Pixel-Wise Explanations for Non-Linear Classifier Decisions by Layer-Wise Relevance Propagation.” PloS One 10 (7): e0130140.\n\n\nSelvaraju, Ramprasaath R, Michael Cogswell, Abhishek Das, Ramakrishna Vedantam, Devi Parikh, and Dhruv Batra. 2017. “Grad-Cam: Visual Explanations from Deep Networks via Gradient-Based Localization.” In Proceedings of the IEEE International Conference on Computer Vision, 618–26.\n\n\nSmilkov, Daniel, Nikhil Thorat, Been Kim, Fernanda Viégas, and Martin Wattenberg. 2017. “Smoothgrad: Removing Noise by Adding Noise.” arXiv Preprint arXiv:1706.03825.\n\n\nSundararajan, Mukund, Ankur Taly, and Qiqi Yan. 2017. “Axiomatic Attribution for Deep Networks.” In International Conference on Machine Learning, 3319–28. PMLR.\n\n\n\n\n\ngithub.com/Julia-XAI"
   }
 ]
