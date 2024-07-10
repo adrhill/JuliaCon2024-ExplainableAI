@@ -1,17 +1,17 @@
 [
   {
-    "objectID": "index.html#follow-along",
-    "href": "index.html#follow-along",
-    "title": "What’s new with Explainable AI in Julia?",
-    "section": "Follow along",
-    "text": "Follow along\n\n\ngithub.com/adrhill/JuliaCon2024-ExplainableAI"
-  },
-  {
     "objectID": "index.html#explainableai.jl-to-julia-xai",
     "href": "index.html#explainableai.jl-to-julia-xai",
     "title": "What’s new with Explainable AI in Julia?",
     "section": "ExplainableAI.jl to Julia-XAI",
-    "text": "ExplainableAI.jl to Julia-XAI\n\nJuliaCon 2022: ExplainableAI.jl\nJuliaCon 2024: Julia-XAI organization\n\n\n\n\n\n\n\nWhat is Julia-XAI?\n\n\nEcosystem of packages providing a platform for the development of new XAI methods:\ngithub.com/Julia-XAI\n\n\n\n\n\n\n\n\n\nWhat kind of explanations?\n\n\nPost-hoc, local input-space explanations of black-box models:\n\n“Which part of the input is responsible for the model’s output?”"
+    "text": "ExplainableAI.jl to Julia-XAI\n\n\n\n\n\n\nWhat kind of explanations?\n\n\nPost-hoc, local input-space explanations of black-box models:\n\n“Which part of the input is responsible for the model’s output?”\n\n\n\n\n\nJuliaCon 2022: ExplainableAI.jl\nJuliaCon 2024: Julia-XAI organization"
+  },
+  {
+    "objectID": "index.html#motivating-example",
+    "href": "index.html#motivating-example",
+    "title": "What’s new with Explainable AI in Julia?",
+    "section": "Motivating example",
+    "text": "Motivating example\n\n\nusing Flux, Metalhead\nmodel = VGG(19; pretrain=true).layers\ntestmode!(model)\n\nprediction = model(input)\nclass = argmax(prediction) # class 484: castle\n\n Downloading artifact: vgg19-IMAGENET1K_V1\n\n\nCartesianIndex(484, 1)\n\n\nPretrained model predicts class “castle”. But why?"
   },
   {
     "objectID": "index.html#methods",
@@ -19,13 +19,6 @@
     "title": "What’s new with Explainable AI in Julia?",
     "section": "Methods",
     "text": "Methods\n\nExplainableAI.jl – applicable on any differentiable classifier\n\nGradient\nInputTimesGradient\nSmoothGrad Smilkov et al. (2017)\nIntegratedGradients Sundararajan, Taly, and Yan (2017)\n🆕 GradCAM Selvaraju et al. (2017)\n\nRelevancePropagation.jl – applicable on Flux.jl classifiers\n\nLRP Bach et al. (2015)\n\n🆕 support for ResNets\n🆕 support for Transformers Ali et al. (2022), Achtibat et al. (2024)\n\n🆕 CRP Achtibat et al. (2023)"
-  },
-  {
-    "objectID": "index.html#example-vision-models",
-    "href": "index.html#example-vision-models",
-    "title": "What’s new with Explainable AI in Julia?",
-    "section": "Example: vision models",
-    "text": "Example: vision models\n\n\nusing Flux, Metalhead\nmodel = VGG(19; pretrain=true).layers\ntestmode!(model)\n\nprediction = model(input)\nclass = argmax(prediction) # class 484: castle\n\n Downloading artifact: vgg19-IMAGENET1K_V1\n\n\nCartesianIndex(484, 1)\n\n\nPretrained model predicts class “castle”. But why?"
   },
   {
     "objectID": "index.html#methods-input-sensitivity",
@@ -60,7 +53,7 @@
     "href": "index.html#visionheatmaps.jl",
     "title": "What’s new with Explainable AI in Julia?",
     "section": "VisionHeatmaps.jl",
-    "text": "VisionHeatmaps.jl"
+    "text": "VisionHeatmaps.jl\n\nheatmap(explanation)\n\n\n\n\n\nheatmap(explanation; colorscheme=:inferno, rangescale=:extrema)\n\n\n\n\n\nNew features: - normalization over batches - heatmap overlays"
   },
   {
     "objectID": "index.html#textheatmaps.jl",
