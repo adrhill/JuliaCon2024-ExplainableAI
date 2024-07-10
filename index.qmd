@@ -73,11 +73,15 @@ Pretrained model predicts class "castle". **But why?**
   - `SmoothGrad` @smilkov2017smoothgrad
   - `IntegratedGradients` @sundararajan2017axiomatic
   - 🆕 `GradCAM` @selvaraju2017grad
-- [RelevancePropagation.jl](https://github.com/Julia-XAI/RelevancePropagation.jl) – applicable on Flux.jl classifiers
+- 🆕 [RelevancePropagation.jl](https://github.com/Julia-XAI/RelevancePropagation.jl) – applicable on Flux.jl classifiers
   - `LRP` @bach2015pixel
     - 🆕 support for ResNets
     - 🆕 support for Transformers @ali2022xai, @achtibat2024attnlrp
   - 🆕 `CRP` @achtibat23crp
+
+::: {.notes}
+A lot of new methods have been added since 2022!
+:::
 
 ## Methods: input sensitivity
 
@@ -121,7 +125,7 @@ heatmap(explanation)
 ## VisionHeatmaps.jl {.smaller}
 
 ```{julia}
-heatmap(explanation)  
+heatmap(explanation)
 ``` 
 
 ```{julia}
@@ -166,8 +170,17 @@ TextHeatmaps.heatmap(val, words; colorscheme=:inferno)
 # Benefits
 - automatically compute heatmaps using [VisionHeatmaps.jl](https://julia-xai.github.io/XAIDocs/VisionHeatmaps/stable/)
 and [TextHeatmaps.jl](https://julia-xai.github.io/XAIDocs/TextHeatmaps/stable/)
+- composable with e.g. [input augmentations](https://julia-xai.github.io/XAIDocs/ExplainableAI/stable/api/#Input-augmentations) from ExplainableAI.jl
 - dependency free
 - perfect for package extensions!
+:::
+
+## Acknowledgements
+
+> Adrian Hill acknowledges support by the Federal Ministry of Education and Research (BMBF) for the Berlin Institute for the Foundations of Learning and Data (BIFOLD) (01IS18037A).
+
+::: {.center-img}
+![](img/bifold.svg)
 :::
 
 ## References
