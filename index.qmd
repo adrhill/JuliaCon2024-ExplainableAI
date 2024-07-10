@@ -1,5 +1,8 @@
 ---
 title: "What's new with Explainable AI in Julia?"
+title-slide-attributes:
+  data-background-image: /img/qr/qrbackground.png
+  data-background-size: contain
 author:
   - name: Adrian Hill
     orcid: 0009-0009-5977-301X
@@ -24,28 +27,9 @@ execute:
 
 # Introduction
 
-## Follow along
-
-::: {.qr-code}
-![](img/qr/qrcode.png)
-
-[github.com/adrhill/JuliaCon2024-ExplainableAI](https://github.com/adrhill/JuliaCon2024-ExplainableAI)
-:::
-
 ## ExplainableAI.jl to Julia-XAI
 
-- **JuliaCon 2022:** ExplainableAI.jl
-- **JuliaCon 2024:** Julia-XAI organization
-
 ::: {.callout-note}
-## What is Julia-XAI?
-
-Ecosystem of packages providing a platform for the development of new XAI methods:
-
-[github.com/Julia-XAI](http://github.com/Julia-XAI)
-:::
-
-::: {.callout-important}
 ## What kind of explanations?
 
 Post-hoc, local input-space explanations of black-box models:
@@ -53,22 +37,10 @@ Post-hoc, local input-space explanations of black-box models:
 > "Which part of the input is responsible for the model's output?"
 :::
 
-# What is XAI?
+- **JuliaCon 2022:** ExplainableAI.jl
+- **JuliaCon 2024:** Julia-XAI organization
 
-## Methods {.smaller}
-- [ExplainableAI.jl](https://github.com/Julia-XAI/ExplainableAI.jl) – applicable on *any* differentiable classifier
-  - `Gradient`
-  - `InputTimesGradient` 
-  - `SmoothGrad` @smilkov2017smoothgrad
-  - `IntegratedGradients` @sundararajan2017axiomatic
-  - 🆕 `GradCAM` @selvaraju2017grad
-- [RelevancePropagation.jl](https://github.com/Julia-XAI/RelevancePropagation.jl) – applicable on Flux.jl classifiers
-  - `LRP` @bach2015pixel
-    - 🆕 support for ResNets
-    - 🆕 support for Transformers @ali2022xai, @achtibat2024attnlrp
-  - 🆕 `CRP` @achtibat23crp
-
-## Example: vision models
+## Motivating example
 
 ![](img/castle.jpg){width=300px;}
 ```{julia}
@@ -92,6 +64,20 @@ class = argmax(prediction) # class 484: castle
 ```
 
 Pretrained model predicts class "castle". **But why?**
+
+## Methods {.smaller}
+
+- [ExplainableAI.jl](https://github.com/Julia-XAI/ExplainableAI.jl) – applicable on *any* differentiable classifier
+  - `Gradient`
+  - `InputTimesGradient` 
+  - `SmoothGrad` @smilkov2017smoothgrad
+  - `IntegratedGradients` @sundararajan2017axiomatic
+  - 🆕 `GradCAM` @selvaraju2017grad
+- [RelevancePropagation.jl](https://github.com/Julia-XAI/RelevancePropagation.jl) – applicable on Flux.jl classifiers
+  - `LRP` @bach2015pixel
+    - 🆕 support for ResNets
+    - 🆕 support for Transformers @ali2022xai, @achtibat2024attnlrp
+  - 🆕 `CRP` @achtibat23crp
 
 ## Methods: input sensitivity
 
@@ -128,9 +114,27 @@ heatmap(explanation)
 
 ## The Julia-XAI ecosystem
 
-## VisionHeatmaps.jl
+::: {.center-img}
+![](img/org.png)
+:::
 
-## TextHeatmaps.jl
+## VisionHeatmaps.jl {.smaller}
+
+```{julia}
+heatmap(explanation)  
+``` 
+
+```{julia}
+heatmap(explanation; colorscheme=:inferno, rangescale=:extrema)
+``` 
+
+::: {.notes}
+New features:
+- normalization over batches
+- heatmap overlays
+:::
+
+## TextHeatmaps.jl {.smaller}
 
 Visualize explanations on **language models**
 
@@ -153,7 +157,7 @@ TextHeatmaps.heatmap(val, words; colorscheme=:inferno)
 
 ## XAIBase.jl
 
-Interface definition:
+**Interface definition:**
 
 1. method has to be a subtype of `AbstractXAIMethod`
 2. method has to return `Explanation`
@@ -165,8 +169,6 @@ and [TextHeatmaps.jl](https://julia-xai.github.io/XAIDocs/TextHeatmaps/stable/)
 - dependency free
 - perfect for package extensions!
 :::
-
-# Appendix
 
 ## References
 
