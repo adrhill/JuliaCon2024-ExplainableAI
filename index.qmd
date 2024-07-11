@@ -27,7 +27,10 @@ execute:
 
 # Introduction
 
-## ExplainableAI.jl to Julia-XAI
+## Invitation to the Julia-XAI ecosystem
+
+- **JuliaCon 2022:** ExplainableAI.jl
+- **JuliaCon 2024:** Julia-XAI organization
 
 ::: {.callout-note}
 ## What kind of explanations?
@@ -37,8 +40,7 @@ Post-hoc, local input-space explanations of black-box models:
 > "Which part of the input is responsible for the model's output?"
 :::
 
-- **JuliaCon 2022:** ExplainableAI.jl
-- **JuliaCon 2024:** Julia-XAI organization
+**Related work:** [Taija ecosystem](https://github.com/JuliaTrustworthyAI) by Patrick Altmeyer et al.
 
 ## Motivating example
 
@@ -65,7 +67,7 @@ class = argmax(prediction) # class 484: castle
 
 Pretrained model predicts class "castle". **But why?**
 
-## Methods {.smaller}
+## What's new: methods {.smaller}
 
 - [ExplainableAI.jl](https://github.com/Julia-XAI/ExplainableAI.jl) – applicable on *any* differentiable classifier
   - `Gradient`
@@ -116,13 +118,13 @@ explanation = analyze(input, analyzer)
 heatmap(explanation)
 ```
 
-## The Julia-XAI ecosystem
+## What's new: Julia-XAI ecosystem
 
 ::: {.center-img}
 ![](img/org.png)
 :::
 
-## VisionHeatmaps.jl {.smaller}
+## What's new: VisionHeatmaps.jl {.smaller}
 
 ```{julia}
 heatmap(explanation)
@@ -138,7 +140,7 @@ New features:
 - heatmap overlays
 :::
 
-## TextHeatmaps.jl {.smaller}
+## What's new: TextHeatmaps.jl {.smaller}
 
 Visualize explanations on **language models**
 
@@ -159,12 +161,13 @@ using ColorSchemes
 TextHeatmaps.heatmap(val, words; colorscheme=:inferno)
 ```
 
-## XAIBase.jl
+## What's new: XAIBase.jl
 
 **Interface definition:**
 
 1. method has to be a subtype of `AbstractXAIMethod`
-2. method has to return `Explanation`
+2. method has to implement `analyze` function
+3. method has to return `Explanation`
 
 ::: {.callout-note}
 # Benefits
