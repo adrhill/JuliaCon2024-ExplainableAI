@@ -3,6 +3,7 @@ title: "What's new with Explainable AI in Julia?"
 title-slide-attributes:
   data-background-image: /img/qr/qrbackground.png
   data-background-size: contain
+subtitle: "An invitation to the Julia-XAI ecosystem"
 author:
   - name: Adrian Hill
     orcid: 0009-0009-5977-301X
